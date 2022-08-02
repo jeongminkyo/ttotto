@@ -1,0 +1,8 @@
+spring:
+  config:
+    import: classpath:config/database.yml
+  profiles:
+    group:
+      development: db-development
+      production: db-production, application-production
+      test: db-test

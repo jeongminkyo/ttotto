@@ -1,0 +1,47 @@
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    out-of-order: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: db-development
+  jpa:
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/ttangtoto?serverTimezone=Asia/Seoul&useSSL=false
+    username: root
+    password: mysql
+
+---
+spring:
+  config:
+    activate:
+      on-profile: db-production
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${TOTO_DATABASE_URL}
+    username: ${TOTO_DATABASE_USERNAME}
+    password: ${TOTO_DATABASE_PASSWORD}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: db-test
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:ttangtoto;MODE=MySQL;
+    username: SA
+    password:
+    initialization-mode: always
