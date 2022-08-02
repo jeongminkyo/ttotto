@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -17,7 +18,7 @@ import static net.logstash.logback.argument.StructuredArguments.entries;
 
 @ControllerAdvice
 @Slf4j
-public class ErrorController {
+public class TtottoExceptionHandler {
 
 	@ExceptionHandler(TtoTtoException.class)
 	public ResponseEntity<ErrorResponse> handleTtoTtoException(TtoTtoException ex) {
