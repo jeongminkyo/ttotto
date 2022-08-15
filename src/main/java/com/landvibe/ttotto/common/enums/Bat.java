@@ -1,5 +1,5 @@
 package com.landvibe.ttotto.common.enums;
 
 public enum Bat {
-	WIN, LOSE, DRAW;
+	HOME_WIN, AWAY_WIN, DRAW;
 }

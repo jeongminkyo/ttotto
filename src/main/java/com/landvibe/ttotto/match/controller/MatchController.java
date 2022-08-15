@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.landvibe.ttotto.common.enums.Bat;
 import com.landvibe.ttotto.common.enums.BatType;
 import com.landvibe.ttotto.common.enums.Event;
 import com.landvibe.ttotto.match.dto.MatchListDto;
@@ -49,7 +50,7 @@ public class MatchController {
 	@GetMapping(value = "/{id}")
 	public MatchDetailResponse matches(@PathVariable Long id) {
 		return MatchDetailResponse.builder()
-			.id(1L)
+			.id(id)
 			.name("월드컵 16강 A조")
 			.date(LocalDate.of(2022, 10, 23))
 			.competition("월드컵")
@@ -58,7 +59,7 @@ public class MatchController {
 			.awayTeam("이탈리아")
 			.batType(BatType.WIN_DRAW_LOSE)
 			.winRates(List.of(WinRateDto.builder()
-					.type("WIN")
+					.type(Bat.HOME_WIN.name())
 					.winRate(1.23)
 					.build(),
 				WinRateDto.builder()
@@ -66,7 +67,7 @@ public class MatchController {
 					.winRate(1.43)
 					.build(),
 				WinRateDto.builder()
-					.type("LOSE")
+					.type(Bat.AWAY_WIN.name())
 					.winRate(1.2)
 					.build()
 			))
