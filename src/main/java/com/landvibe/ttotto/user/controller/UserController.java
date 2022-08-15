@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(value = "/api/v1/user")
 public class UserController {
 
-	@GetMapping(value = "/info")
+	@GetMapping(value = "/me")
 	public MyInfoResponse myInfo() {
 		return MyInfoResponse.builder()
 			.email("redwonder@naver.com")
